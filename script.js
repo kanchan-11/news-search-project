@@ -1,17 +1,14 @@
 const API_KEY = "ed77d1e0e8374951a9c732b5e473e379";
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
 const blog_container = document.getElementById("blog-container");
 
 async function fetchNews(){
     try{
-        const URL  = `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=${API_KEY}`;
+        const URL  = `${CORS_PROXY}https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=${API_KEY}`;
         const response = await fetch(URL,{
             headers: {
-                // 'Content-Type': 'application/json; charset=utf-8',
-                // 'Access-Control-Allow-Origin': '*',
-                // 'Accept': 'application/json',
-            // 'Authorization': `${API_KEY}`,
-        
+                "Origin": "https://kanchan-11.github.io/news-search-project/",
             }
         });
         const data = await response.json();
